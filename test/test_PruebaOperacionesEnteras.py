@@ -1,16 +1,15 @@
 import unittest
 from src.logic.OperacionesEnteros import OperacionesEnteras
 
-class test_OperacionesEnteras(unittest.TestCase):
+class PruebaOperacionesEnteras(unittest.TestCase):
+
     def setUp(self):
-        self.operacion = OperacionesEnteras()
+        self.operacion = OperacionesEnteras([])
 
     def tearDown(self):
         self.operacion = None
 
-
     def test_MCD_dosNumerosPositivos_retornaMCD(self):
-
         # Arrange
         numero1 = 18
         numero2 = 24
@@ -22,3 +21,16 @@ class test_OperacionesEnteras(unittest.TestCase):
         # Assert
         self.assertEqual(resultadoEsperado, resultadoActual)
 
+    def test_MCD_tresNumerosPositivos_retornaMCD(self):
+        # Arrange
+        numero1 = 24679
+        numero2 = 20387
+        numero3 = 16169
+        resultadoEsperado = 37
+        operacion = OperacionesEnteras([numero1, numero2, numero3])
+
+        # Do
+        resultadoActual = operacion.calcularMCD()
+
+        # Assert
+        self.assertEqual(resultadoEsperado, resultadoActual)
